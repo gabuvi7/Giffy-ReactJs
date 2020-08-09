@@ -14,8 +14,61 @@
 }
 
 button{
-  height: 60px;
-  width: 100px;
-  background-color: red;
+  background-color: #282c34;
   border-radius: 10px;
+  color: #fff;
+}
+
+input{
+  border-radius: 10px;
+}
+
+.anchor{
+  color: #fff;
+  text-decoration: none;
+}
+
+
+nav{
+  padding-bottom: 52px;
+}
+
+h3{
+  margin: 13px;
+  color: #2b58b4;
+  cursor: pointer;
+}
+
+.row{
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  position: fixed;
+  background-color:#323844 ;
+}
+
+.col{
+  width: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.col-s{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  z-index: -1;
+  justify-content: flex-end;
+}
+
+.search{
+  flex-flow: end;
+}
+
+@media screen and (max-width: 984px){
+  .col-s{
+    display: none;
+  }
 }
