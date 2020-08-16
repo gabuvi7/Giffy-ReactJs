@@ -13,14 +13,26 @@
   color: white;
 }
 
-button{
-  background-color: #282c34;
-  border-radius: 10px;
-  color: #fff;
+.menu{
+  z-index: 999999;
 }
 
-input{
-  border-radius: 10px;
+.searchForm{
+  padding-right: 15px;
+}
+
+.searchForm > button{
+  background-color: #2d59b3;
+  border-radius: 0px 10px 10px 0px;
+  color: #fff;
+  border: none;
+  height: 22px;
+}
+
+.searchForm > input{
+  border-radius: 10px 0 0 10px;
+  border: none;
+  height: 20px;
 }
 
 .anchor{

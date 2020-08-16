@@ -19,7 +19,7 @@ export default function Search() {
 
   return (
     <>
-      <form onSubmit={submitAction}>
+      <form className="searchForm" onSubmit={submitAction}>
         <input
           value={searchState}
           placeholder={mainTitleText}

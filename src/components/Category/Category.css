@@ -1,0 +1,37 @@
+
+.list-item{
+    padding: 30px 0 0 0;
+}
+.Category-title {
+  color: white;
+  font-weight: bold;
+}
+
+.Category-list {
+  text-align: left ;
+}
+
+.Category-link {
+  color: white;
+  font-size: 1em;
+  transition: color ease-in 0.1s;
+  text-decoration: none;
+}
+li{
+    text-decoration: none;
+}
+.Category-link:hover {
+  color: #8c55a2;
+}
+
+@media screen and (min-width: 640px) {
+  .Category-list {
+    display: list-item;
+  }
+
+  .Category-list li::before {
+    color: #8c55a2;
+    margin-right: 0.5em;
+    font-size: 1em;
+  }
+}

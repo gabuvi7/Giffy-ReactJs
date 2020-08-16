@@ -12,18 +12,15 @@ const POPULAR_GIFS = [
 export default function Menu() {
   return (
     <nav>
-      <div className="row">
+      <div className="row menu">
         <div className="col">
-          <h3>App Giffy</h3>
+          <Link className="anchor" to="/">
+            <h3>Giffy</h3>
+          </Link>
         </div>
         <div className="col">
-          <ul>
-            <Link className="anchor" to="/">
-              Inicio
-            </Link>
-          </ul>
           {POPULAR_GIFS.map((popularGifs) => (
-            <ul>
+            <ul key={popularGifs}>
               <Link className="anchor" to={`/gif/${popularGifs}`}>
                 {popularGifs}
               </Link>
