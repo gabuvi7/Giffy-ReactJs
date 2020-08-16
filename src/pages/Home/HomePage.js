@@ -1,9 +1,9 @@
 import React from "react";
-import { useGifs } from "../../hooks/useGifs";
-import Spinner from "../../components/Spinner/Spinner";
-import ListOfGifs from "../../components/ListOfGifs/ListOfGifs";
+import { useGifs } from "hooks/useGifs";
+import Spinner from "components/Spinner/Spinner";
+import ListOfGifs from "components/ListOfGifs/ListOfGifs";
 import "./HomePage.css";
-import Sidebar from "../../components/Sidebar/Sidebar";
+import Sidebar from "components/Sidebar/Sidebar";
 
 export default function HomePage() {
   const { loading, gifs } = useGifs();

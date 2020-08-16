@@ -1,5 +1,5 @@
 import React from "react";
-import { useGifs } from "../../hooks/useGifs";
+import { useGifs } from "hooks/useGifs";
 import Spinner from "../Spinner/Spinner";
 import ListOfGifs from "../ListOfGifs/ListOfGifs";
 

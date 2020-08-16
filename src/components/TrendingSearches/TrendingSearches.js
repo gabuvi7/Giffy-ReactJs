@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Category from "../Category/Category";
-import getTrendingTerms from "../../services/getTrendingTermsService";
+import getTrendingTerms from "services/getTrendingTermsService";
 
 export default function TrendingSearches() {
   const [trends, setTrends] = useState([]);
