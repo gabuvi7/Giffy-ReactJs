@@ -7,7 +7,7 @@ import Sidebar from "components/Sidebar/Sidebar";
 
 export default function HomePage() {
   const { loading, gifs } = useGifs();
-  /* */
+
   return (
     <div>
       <div>
@@ -17,8 +17,12 @@ export default function HomePage() {
         <Spinner></Spinner>
       ) : (
         <div>
-          <Sidebar></Sidebar>
-          <ListOfGifs gifs={gifs}></ListOfGifs>
+          <div>
+            <ListOfGifs gifs={gifs}></ListOfGifs>
+          </div>
+          <div>
+            <Sidebar></Sidebar>
+          </div>
         </div>
       )}
     </div>

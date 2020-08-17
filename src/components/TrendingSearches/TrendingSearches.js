@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import Category from "../Category/Category";
 import getTrendingTerms from "services/getTrendingTermsService";
 
-export default function TrendingSearches() {
+function TrendingSearches() {
   const [trends, setTrends] = useState([]);
-  
+
   /* Seteo isSubscribe = true dentro del useEffect para que, luego si el componente es demontado, 
   no trate de suscribirse indefinidamente generando memory leaks. Al final del hook siempre retorno false.
   */
@@ -18,4 +18,24 @@ export default function TrendingSearches() {
   }, []);
 
   return <Category options={trends}></Category>;
+}
+
+export default function LazyTrending() {
+  const [show, setShow] = useState(false);
+
+  useEffect(function () {
+    const onChange = (entries) => {
+      const el = entries[0];
+      if (el.isIntersecting) {
+        setShow(true);
+      }
+    };
+    const observer = new IntersectionObserver(onChange, {
+      rootMargin: "100px",
+    });
+
+    observer.observe(document.getElementById("idLazyTrending"));
+  });
+
+  return <div id="idLazyTrending">{show ? <TrendingSearches /> : null}</div>;
 }

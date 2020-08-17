@@ -5,30 +5,72 @@
 .Sidebar {
   position: fixed;
   height: 100vh;
-  background: linear-gradient(to right, rgb(0, 0, 0) 2% ,#0d2657, rgb(87, 87, 87) );
+  background: linear-gradient(
+    to right,
+    rgb(0, 0, 0) 2%,
+    #0d2657,
+    rgb(87, 87, 87)
+  );
   z-index: 10000;
   overflow: auto;
-  top: 43px;
+  top: 53px;
   width: var(--width);
   left: calc(0px - var(--width));
   text-align: left;
-  margin-top: 10px;
 }
 
 .ToggleBtn {
   left: 0px;
   position: fixed;
   width: var(--width);
-  background: linear-gradient(to right, rgb(0, 0, 0) 2% ,#0d2657, rgb(87, 87, 87) );
+  background: linear-gradient(
+    to right,
+    rgb(0, 0, 0) 2%,
+    #0d2657,
+    rgb(87, 87, 87)
+  );
   border-radius: 0px 10px 10px 0px;
   color: #fff;
   border: none;
-  height: 22px;
+  font-size: 1.5rem;
 }
 
 .ToggleBtn:focus,
 .Sidebar:hover {
   left: calc(var(--width) - var(--width));
-  transition: all 0.1s ease-out;
+  transition: all 0.2s ease-out;
 }
 
+@media (max-width: 768px) {
+  .ToggleBtn {
+    left: 0px;
+    position: relative;
+    background: linear-gradient(
+      to right,
+      rgb(0, 0, 0) 2%,
+      #0d2657,
+      rgb(87, 87, 87)
+    );
+    border-radius: 0px 10px 10px 0px;
+    color: #fff;
+    border: none;
+    font-size: 1.5rem;
+    width: 100%;
+  }
+
+  .Sidebar {
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(
+      to right,
+      rgb(0, 0, 0) 2%,
+      #0d2657,
+      rgb(87, 87, 87)
+    );
+    z-index: 10000;
+    overflow: auto;
+    width: 100%;
+    left: 0px;
+    text-align: left;
+  }
+}
