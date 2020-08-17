@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Category from "../Category/Category";
 import getTrendingTerms from "services/getTrendingTermsService";
 
@@ -22,20 +22,27 @@ function TrendingSearches() {
 
 export default function LazyTrending() {
   const [show, setShow] = useState(false);
+  const elementRef = useRef();
 
   useEffect(function () {
-    const onChange = (entries) => {
+    const onChange = (entries, observer) => {
       const el = entries[0];
+      console.log(el.isIntersecting);
       if (el.isIntersecting) {
         setShow(true);
+        observer.disconnect(); //Una vez realizada la interseccion con el elemento, dejo de observarlo.
       }
     };
     const observer = new IntersectionObserver(onChange, {
       rootMargin: "100px",
     });
 
-    observer.observe(document.getElementById("idLazyTrending"));
+    observer.observe(elementRef.current);
+
+    return () => {
+      observer.disconnect(); //El hook retorna la desconexion del observer para que cuando este componente se deje de utilizar, limpia el evento.
+    };
   });
 
-  return <div id="idLazyTrending">{show ? <TrendingSearches /> : null}</div>;
+  return <div ref={elementRef}>{show ? <TrendingSearches /> : null}</div>;
 }
