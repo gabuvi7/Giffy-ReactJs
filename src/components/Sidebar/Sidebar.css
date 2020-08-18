@@ -17,6 +17,7 @@
   width: var(--width);
   left: calc(0px - var(--width));
   text-align: left;
+  font-size: 1.1rem;
 }
 
 .ToggleBtn {
@@ -72,5 +73,6 @@
     width: 100%;
     left: 0px;
     text-align: left;
+    font-size: calc(10px + 2vmin);
   }
 }

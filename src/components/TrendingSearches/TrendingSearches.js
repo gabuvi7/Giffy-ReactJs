@@ -33,6 +33,11 @@ export default function LazyTrending() {
         observer.disconnect(); //Una vez realizada la interseccion con el elemento, dejo de observarlo.
       }
     };
+
+    Promise.resolve(
+      IntersectionObserver || import("intersection-observer")
+    ).then(() => {});
+
     const observer = new IntersectionObserver(onChange, {
       rootMargin: "100px",
     });
