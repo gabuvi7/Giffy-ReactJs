@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 
-export default function useNearScreen() {
+export default function useNearScreen({ distance = "100px" } = {}) {
   const [isNearScreen, setShow] = useState(false);
-  const elementRef = useRef();
+  const fromRef = useRef();
 
-  useEffect(function ({ distance = "100px" }) {
+  useEffect(() => {
     let observer;
 
     const onChange = (entries, observer) => {
@@ -15,28 +15,20 @@ export default function useNearScreen() {
       }
     };
 
-    observer = new IntersectionObserver(onChange, {
-      rootMargin: distance,
-    });
-
     Promise.resolve(
       typeof IntersectionObserver !== "undefined"
         ? IntersectionObserver
         : import("intersection-observer")
     ).then(() => {
       observer = new IntersectionObserver(onChange, {
-        rootMargin: "100px",
+        rootMargin: distance,
       });
-      console.log("element");
-      console.log(elementRef);
-      console.log("el de arriba pa");
-      observer.observe(elementRef.current);
-    });
 
-    observer.observe(elementRef.current);
+      observer.observe(fromRef.current);
+    });
 
     return () => observer && observer.disconnect(); //El hook retorna la desconexion del observer para que cuando este componente se deje de utilizar, limpia el evento.
   });
 
-  return { isNearScreen, elementRef };
+  return { isNearScreen, fromRef };
 }
