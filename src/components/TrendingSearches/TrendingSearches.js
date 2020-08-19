@@ -25,6 +25,7 @@ export default function LazyTrending() {
   const elementRef = useRef();
 
   useEffect(function () {
+    //let observer;
     const onChange = (entries, observer) => {
       const el = entries[0];
       console.log(el.isIntersecting);
@@ -34,19 +35,12 @@ export default function LazyTrending() {
       }
     };
 
-    Promise.resolve(
-      IntersectionObserver || import("intersection-observer")
-    ).then(() => {});
-
     const observer = new IntersectionObserver(onChange, {
       rootMargin: "100px",
     });
-
     observer.observe(elementRef.current);
 
-    return () => {
-      observer.disconnect(); //El hook retorna la desconexion del observer para que cuando este componente se deje de utilizar, limpia el evento.
-    };
+    return () => observer && observer.disconnect(); //El hook retorna la desconexion del observer para que cuando este componente se deje de utilizar, limpia el evento.
   });
 
   return <div ref={elementRef}>{show ? <TrendingSearches /> : null}</div>;
