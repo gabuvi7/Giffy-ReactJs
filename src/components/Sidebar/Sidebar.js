@@ -1,6 +1,6 @@
 import React from "react";
 import "./Sidebar.css";
-import LazyTrending from "../TrendingSearches/TrendingSearches";
+import LazyTrending from "../TrendingSearches/LazyTrending";
 
 export default function Sidebar() {
   return (
