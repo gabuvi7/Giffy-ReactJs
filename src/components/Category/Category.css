@@ -1,14 +1,10 @@
-
-.list-item{
-    padding: 30px 0 0 0;
-}
 .Category-title {
   color: white;
   font-weight: bold;
 }
 
 .Category-list {
-  text-align: left ;
+  text-align: left;
 }
 
 .Category-link {
@@ -17,8 +13,8 @@
   transition: color ease-in 0.1s;
   text-decoration: none;
 }
-li{
-    text-decoration: none;
+li {
+  text-decoration: none;
 }
 .Category-link:hover {
   color: #8c55a2;
@@ -30,7 +26,7 @@ li{
   }
 
   .Category-list li::before {
-    color: #8c55a2;
+    color: #080077;
     margin-right: 0.5em;
     font-size: 1em;
   }
