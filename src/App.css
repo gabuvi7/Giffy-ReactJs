@@ -84,3 +84,13 @@ h3{
     display: none;
   }
 }
+
+.btn{
+  width: auto;
+  background-color: #2b58b4;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  height: 30px;
+  cursor: pointer;
+}

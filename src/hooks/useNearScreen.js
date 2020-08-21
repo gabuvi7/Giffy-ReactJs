@@ -11,7 +11,8 @@ export default function useNearScreen({ distance = "100px" } = {}) {
       const el = entries[0];
       if (el.isIntersecting) {
         setShow(true);
-        observer.disconnect(); //Una vez realizada la interseccion con el elemento, dejo de observarlo.
+        //observer.unobserve(el); //Dejo de observar al elemento.
+        observer.disconnect(); //Una vez realizada la interseccion con el elemento, desconecto el observador.
       }
     };
     /*

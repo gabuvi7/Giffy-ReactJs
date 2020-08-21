@@ -20,7 +20,7 @@ export default function Search() {
   return (
     <>
       <form className="searchForm" onSubmit={submitAction}>
-        <input
+        <input id='idSearch'
           value={searchState}
           placeholder={mainTitleText}
           onChange={handleChange}

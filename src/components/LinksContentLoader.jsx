@@ -4,7 +4,7 @@ import ContentLoader from "react-content-loader";
 const LinksContentLoader = (props) => (
   <ContentLoader
     speed={0.5}
-    width="-200px"
+    width="200px"
     viewBox="0 0 200 500"
     backgroundColor="#f5f5f5"
     foregroundColor="red"
