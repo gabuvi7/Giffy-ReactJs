@@ -1,8 +1,10 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useCallback } from "react";
 import { useGifs } from "hooks/useGifs";
 import Spinner from "../Spinner/Spinner";
 import ListOfGifs from "../ListOfGifs/ListOfGifs";
 import useNearScreen from "hooks/useNearScreen";
+import debounce from "just-debounce-it";
+import throttle from "just-throttle";
 
 export default function SearchResult({ params }) {
   const { keyword } = params;
@@ -10,17 +12,28 @@ export default function SearchResult({ params }) {
   const externalRef = useRef();
   const { isNearScreen } = useNearScreen({
     externalRef: loading ? null : externalRef,
+    once: false,
   });
 
-  console.log(isNearScreen);
   const HandleNextPage = () => console.log("next page");
   /*const HandleNextPage = () => {
     setPage((prevPage) => prevPage + 1);
   };*/
+  /*
+  const debounceHandleNextPage = useCallback(
+    () => debounce(HandleNextPage, 1000),
+    []
+  );*/
+
+  const throttleHandleNextPage = useCallback(
+    throttle(() => setPage((prevPage) => prevPage + 1), 200),
+    []
+  );
 
   useEffect(() => {
-    if (isNearScreen) HandleNextPage();
-  });
+    console.log(isNearScreen);
+    if (isNearScreen) throttleHandleNextPage();
+  }, [throttleHandleNextPage, isNearScreen]);
   return (
     <>
       {loading ? (
