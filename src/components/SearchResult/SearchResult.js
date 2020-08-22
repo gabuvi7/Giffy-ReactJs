@@ -27,8 +27,9 @@ export default function SearchResult({ params }) {
 
   const throttleHandleNextPage = useCallback(
     throttle(() => setPage((prevPage) => prevPage + 1), 200),
-    []
-  );
+    [setPage]
+  ); //Con el useCallback evito crear una nueva funcion entre renderizados. Con la dependencia vacia solo la crea la 1era vez. 
+    // En este caso quiero que se cree cada vez que la dependencia setPage cambie.
 
   useEffect(() => {
     console.log(isNearScreen);
