@@ -20,7 +20,6 @@ export default function SearchResult({ params }) {
         </>
       )}
       <button type="button" className="btn" onClick={HandleNextPage}>
-        {" "}
         Get next page...
       </button>
     </>
