@@ -3,7 +3,7 @@ import { useGifs } from "hooks/useGifs";
 import Spinner from "../Spinner/Spinner";
 import ListOfGifs from "../ListOfGifs/ListOfGifs";
 import useNearScreen from "hooks/useNearScreen";
-import debounce from "just-debounce-it";
+//import debounce from "just-debounce-it";
 import throttle from "just-throttle";
 
 export default function SearchResult({ params }) {
@@ -15,7 +15,7 @@ export default function SearchResult({ params }) {
     once: false,
   });
 
-  const HandleNextPage = () => console.log("next page");
+//  const HandleNextPage = () => console.log("next page");
   /*const HandleNextPage = () => {
     setPage((prevPage) => prevPage + 1);
   };*/
@@ -32,7 +32,6 @@ export default function SearchResult({ params }) {
     // En este caso quiero que se cree cada vez que la dependencia setPage cambie.
 
   useEffect(() => {
-    console.log(isNearScreen);
     if (isNearScreen) throttleHandleNextPage();
   }, [throttleHandleNextPage, isNearScreen]);
   return (

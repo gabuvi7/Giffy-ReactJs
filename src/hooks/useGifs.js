@@ -19,7 +19,7 @@ export function useGifs({ keyword } = { keyword: null }) {
       setGifs(gifs);
       setLoading(false);
       localStorage.setItem("lastKeyword", keyword);
-    }); // eslint-disable-next-line
+    });
   }, [keyword, keywordToUse, setGifs]);
 
   useEffect(() => {
