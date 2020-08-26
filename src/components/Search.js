@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link } from "wouter";
 //useHistory == useLocation
 
-export default function Search() {
+function Search() {
   const mainTitleText = "Qué Gif buscas?";
   const [searchState, updateSearchState] = useState([""]);
   // const [path, pushLocation] = useLocation(); //custom Hook de wouter. Devuelve el path y una funcion.
@@ -20,7 +20,8 @@ export default function Search() {
   return (
     <>
       <form className="searchForm" onSubmit={submitAction}>
-        <input id='idSearch'
+        <input
+          id="idSearch"
           value={searchState}
           placeholder={mainTitleText}
           onChange={handleChange}
@@ -32,3 +33,5 @@ export default function Search() {
     </>
   );
 }
+
+export default React.memo(Search);

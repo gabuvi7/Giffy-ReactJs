@@ -14,10 +14,18 @@
   text-decoration: none;
 }
 li {
-  text-decoration: none;
+  background-color: #38364a;
+  border-radius: 10px;
+  margin: 3px 0px 3px 0px;
+  padding-left: 3px;
+  text-transform: none;
+  opacity: 0.5;
+  display: block !important;
+  cursor: pointer;
 }
-.Category-link:hover {
-  color: #8c55a2;
+
+li:hover{
+  opacity: 1 !important;
 }
 
 @media screen and (min-width: 640px) {

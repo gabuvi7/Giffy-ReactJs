@@ -6,11 +6,13 @@ export default function Category({ name, options = [] }) {
   return (
     <div className="list-item">
       {options.map((singleOption) => (
-        <li key={singleOption.id}>
-          <Link className="Category-link" to={`/gif/${singleOption.slug}`}>
-            {singleOption.title}
-          </Link>
-        </li>
+        <Link
+          key={singleOption.id}
+          className="Category-link"
+          to={`/gif/${singleOption.slug}`}
+        >
+          <li>{singleOption.title}</li>
+        </Link>
       ))}
     </div>
   );

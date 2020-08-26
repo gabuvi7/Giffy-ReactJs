@@ -6,7 +6,7 @@ export default function Sidebar() {
   return (
     <div className="Sidebar">
       <button id="btnToggle" type="button" className="ToggleBtn">
-        Trending Categories
+        Tendencias
       </button>
       <LazyTrending />
     </div>
