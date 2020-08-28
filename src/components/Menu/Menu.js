@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "wouter";
-import Search from "./Search";
+import Search from "../Search";
+import "./Menu.css";
 
 const POPULAR_GIFS = [
   "Argentina",
@@ -8,17 +9,7 @@ const POPULAR_GIFS = [
   "Harry Potter",
   "Resident Evil",
 ];
-
-export default function Menu() {
-  return (
-    <nav>
-      <div className="row menu">
-        <div className="col">
-          <Link className="anchor" to="/">
-            <h3>Giffy</h3>
-          </Link>
-        </div>
-        <div className="col">
+/*  <div className="col">
           {POPULAR_GIFS.map((popularGifs) => (
             <ul key={popularGifs}>
               <Link className="anchor" to={`/gif/${popularGifs}`}>
@@ -27,7 +18,18 @@ export default function Menu() {
             </ul>
           ))}
         </div>
-        <div className="col-s">
+*/
+export default function Menu() {
+  return (
+    <nav>
+      <div className="row menu">
+        <div className="col" id="colGiffy">
+          <Link className="anchor" to="/">
+            <h3 id="giffy">Giffy</h3>
+          </Link>
+        </div>
+
+        <div className="col-s" id="colSearch">
           <ul className="search">
             <Search></Search>
           </ul>

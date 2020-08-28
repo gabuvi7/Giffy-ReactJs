@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,500&family=Lexend+Peta&display=swap");
+
 :root{
-  background-color: #282c34;
+  background-color: black;
 }
 
 .App {
@@ -7,17 +9,13 @@
 }
 
 .App-content {
-  background-color: #282c34;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(0.8rem + 2vmin);
   color: white;
-}
-
-.menu{
-  z-index: 999999;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 .searchForm{
@@ -44,15 +42,6 @@
 }
 
 
-nav{
-  padding-bottom: 52px;
-}
-
-h3{
-  margin: 13px;
-  color: #2b58b4;
-  cursor: pointer;
-}
 
 .row{
   width: 100%;
@@ -60,7 +49,7 @@ h3{
   flex-wrap: nowrap;
   flex-direction: row;
   position: fixed;
-  background-color:#323844 ;
+  
 }
 
 .col{
@@ -74,7 +63,6 @@ h3{
   display: flex;
   flex-direction: row;
   position: fixed;
-  z-index: -1;
   justify-content: flex-end;
 }
 
@@ -82,11 +70,7 @@ h3{
   flex-flow: end;
 }
 
-@media screen and (max-width: 984px){
-  .col-s{
-    display: none;
-  }
-}
+
 
 .btn{
   width: auto;

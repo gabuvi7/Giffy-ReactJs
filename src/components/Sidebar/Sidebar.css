@@ -5,32 +5,25 @@
 .Sidebar {
   position: fixed;
   height: 100vh;
-  background: linear-gradient(
-    to right,
-    rgb(0, 0, 0) 2%,
-    #0d2657,
-    rgb(87, 87, 87)
-  );
-  z-index: 10000;
+  background-color: black;
+  z-index: 999999;
   overflow: auto;
-  top: 53px;
+  top: 13px;
   width: var(--width);
   left: calc(0px - var(--width));
   text-align: left;
   font-size: 1.1rem;
 }
 
+#btnToggle{
+  font-family: "Josefin Sans", sans-serif;
+}
+
 .ToggleBtn {
   left: 0px;
   position: fixed;
   width: var(--width);
-  background: linear-gradient(
-    to right,
-    rgb(0, 0, 0) 2%,
-    #0d2657,
-    rgb(87, 87, 87)
-  );
-  border-radius: 0px 10px 10px 0px;
+  background-color: rgb(55, 58, 51);
   color: #fff;
   border: none;
   font-size: 1.5rem;
@@ -46,12 +39,7 @@
   .ToggleBtn {
     left: 0px;
     position: relative;
-    background: linear-gradient(
-      to right,
-      rgb(0, 0, 0) 2%,
-      #0d2657,
-      rgb(87, 87, 87)
-    );
+    background-color: chartreuse;
     border-radius: 0px 10px 10px 0px;
     color: #fff;
     border: none;
@@ -62,12 +50,7 @@
   .Sidebar {
     position: relative;
     height: 100vh;
-    background: linear-gradient(
-      to right,
-      rgb(0, 0, 0) 2%,
-      #0d2657,
-      rgb(87, 87, 87)
-    );
+    background-color: chartreuse;
     z-index: 10000;
     overflow: auto;
     width: 100%;

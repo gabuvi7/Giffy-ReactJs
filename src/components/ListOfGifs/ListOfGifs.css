@@ -2,6 +2,19 @@
   --result-columns: 2;
 }
 
+a {
+  text-decoration: none;
+}
+
+.ListOfGifs > .ListOfGifs-item:nth-child(odd) > a{
+  color: black;
+}
+
+
+.ListOfGifs > .ListOfGifs-item:nth-child(even) > a{
+  color: white;
+}
+
 .ListOfGifs {
   display: grid;
   width: 100%;
@@ -12,10 +25,19 @@
   min-height: 100vh;
 }
 
+.ListOfGifs > .ListOfGifs-item:nth-child(odd) {
+  background-color: rgb(213, 255, 59);
+}
+
+
+.ListOfGifs > .ListOfGifs-item:nth-child(even) {
+  background-color: rgb(185, 59, 255);
+}
+
+
 .ListOfGifs-item {
   display: inline-block;
   border-radius: 10px;
-  background-color: #323844;
   padding-bottom: 20px;
   width: 100%;
 }
@@ -28,4 +50,3 @@
   width: 100%;
   min-height: 300px;
 }
-

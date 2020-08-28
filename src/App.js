@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Route } from "wouter";
-import Menu from "./components/Menu";
+import Menu from "./components/Menu/Menu";
 import SearchResult from "./components/SearchResult/SearchResult";
 import HomePage from "./pages/Home/HomePage";
 import Detail from "./pages/Detail/DetailPage";

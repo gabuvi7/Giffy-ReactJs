@@ -13,9 +13,19 @@
   transition: color ease-in 0.1s;
   text-decoration: none;
 }
+
+.list-item > li:nth-child(odd) {
+  background-color: #25e0b2;
+  color: black;
+}
+
+
+.list-item > li:nth-child(even) {
+  background-color: #fffc4e;
+  color: black;
+}
+
 li {
-  background-color: #38364a;
-  border-radius: 10px;
   margin: 3px 0px 3px 0px;
   padding-left: 3px;
   text-transform: none;
@@ -24,7 +34,7 @@ li {
   cursor: pointer;
 }
 
-li:hover{
+li:hover {
   opacity: 1 !important;
 }
 
