@@ -2,13 +2,13 @@ import React from "react";
 import { Link } from "wouter";
 import Search from "../Search";
 import "./Menu.css";
-
+/*
 const POPULAR_GIFS = [
   "Argentina",
   "Boca Juniors",
   "Harry Potter",
   "Resident Evil",
-];
+];*/
 /*  <div className="col">
           {POPULAR_GIFS.map((popularGifs) => (
             <ul key={popularGifs}>

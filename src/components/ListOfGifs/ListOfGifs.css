@@ -6,12 +6,11 @@ a {
   text-decoration: none;
 }
 
-.ListOfGifs > .ListOfGifs-item:nth-child(odd) > a{
+.ListOfGifs > .ListOfGifs-item:nth-child(odd) > a {
   color: black;
 }
 
-
-.ListOfGifs > .ListOfGifs-item:nth-child(even) > a{
+.ListOfGifs > .ListOfGifs-item:nth-child(even) > a {
   color: white;
 }
 
@@ -21,6 +20,7 @@ a {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 16px;
   align-items: center;
+  justify-content: center;
   grid-template-rows: masonry;
   min-height: 100vh;
 }
@@ -29,11 +29,9 @@ a {
   background-color: rgb(213, 255, 59);
 }
 
-
 .ListOfGifs > .ListOfGifs-item:nth-child(even) {
   background-color: rgb(185, 59, 255);
 }
-
 
 .ListOfGifs-item {
   display: inline-block;

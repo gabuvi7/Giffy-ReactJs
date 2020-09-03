@@ -39,8 +39,7 @@
   .ToggleBtn {
     left: 0px;
     position: relative;
-    background-color: chartreuse;
-    border-radius: 0px 10px 10px 0px;
+    background-color: rgb(55, 58, 51);
     color: #fff;
     border: none;
     font-size: 1.5rem;

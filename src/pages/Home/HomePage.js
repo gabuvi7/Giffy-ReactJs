@@ -9,7 +9,7 @@ export default function HomePage() {
   const { loading, gifs } = useGifs();
 
   return (
-    <div>
+    <div id="idHomeContainer">
       <div>
         <h2>Última visita</h2>
       </div>

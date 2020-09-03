@@ -5,6 +5,8 @@ import ListOfGifs from "../ListOfGifs/ListOfGifs";
 import useNearScreen from "hooks/useNearScreen";
 //import debounce from "just-debounce-it";
 import throttle from "just-throttle";
+import "./SearchResult.css";
+import useTitle from "hooks/useTitle";
 
 export default function SearchResult({ params }) {
   const { keyword } = params;
@@ -15,7 +17,7 @@ export default function SearchResult({ params }) {
     once: false,
   });
 
-//  const HandleNextPage = () => console.log("next page");
+  //  const HandleNextPage = () => console.log("next page");
   /*const HandleNextPage = () => {
     setPage((prevPage) => prevPage + 1);
   };*/
@@ -25,17 +27,20 @@ export default function SearchResult({ params }) {
     []
   );*/
 
+  const title = gifs ? `${gifs.length} Resultados de ${keyword}` : "";
+  useTitle({ title });
+
   const throttleHandleNextPage = useCallback(
     throttle(() => setPage((prevPage) => prevPage + 1), 200),
     [setPage]
-  ); //Con el useCallback evito crear una nueva funcion entre renderizados. Con la dependencia vacia solo la crea la 1era vez. 
-    // En este caso quiero que se cree cada vez que la dependencia setPage cambie.
+  ); //Con el useCallback evito crear una nueva funcion entre renderizados. Con la dependencia vacia solo la crea la 1era vez.
+  // En este caso quiero que se cree cada vez que la dependencia setPage cambie.
 
   useEffect(() => {
     if (isNearScreen) throttleHandleNextPage();
   }, [throttleHandleNextPage, isNearScreen]);
   return (
-    <>
+    <div id="idSearchResult">
       {loading ? (
         <Spinner />
       ) : (
@@ -47,6 +52,6 @@ export default function SearchResult({ params }) {
       {/* Lo comento para hacer Infinity Scroll <button type="button" className="btn" onClick={HandleNextPage}>
         Get next page...
       </button>  */}
-    </>
+    </div>
   );
 }
