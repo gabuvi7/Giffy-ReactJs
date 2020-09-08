@@ -6,7 +6,8 @@ import useNearScreen from "hooks/useNearScreen";
 //import debounce from "just-debounce-it";
 import throttle from "just-throttle";
 import "./SearchResult.css";
-import useTitle from "hooks/useTitle";
+import useTitle from "hooks/useSEO";
+import { Helmet } from "react-helmet";
 
 export default function SearchResult({ params }) {
   const { keyword } = params;
@@ -28,7 +29,7 @@ export default function SearchResult({ params }) {
   );*/
 
   const title = gifs ? `${gifs.length} Resultados de ${keyword}` : "";
-  useTitle({ title });
+  //useTitle({ title });
 
   const throttleHandleNextPage = useCallback(
     throttle(() => setPage((prevPage) => prevPage + 1), 200),
@@ -45,6 +46,10 @@ export default function SearchResult({ params }) {
         <Spinner />
       ) : (
         <>
+          <Helmet>
+            <title>{title}</title>
+            <meta name="description" content={`Resultados de ${keyword}`}/>
+          </Helmet>
           <h3> {decodeURI(keyword)}</h3> <ListOfGifs gifs={gifs} />
           <div id="visorScroll" ref={externalRef}></div>
         </>
