@@ -1,0 +1,21 @@
+.row {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  position: fixed;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+#idHomeContainer{
+  width: 100%;
+}

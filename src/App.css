@@ -1,38 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,500&family=Lexend+Peta&display=swap");
+
+:root{
+  background-color: black;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App-content {
   display: flex;
-  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  text-align: center;
+  font-size: calc(0.8rem + 2vmin);
   color: white;
+  font-family: "Josefin Sans", sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+.searchForm{
+  padding-right: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.searchForm > button{
+  background-color: #2d59b3;
+  border-radius: 0px 10px 10px 0px;
+  color: #fff;
+  border: none;
+  height: 22px;
+}
+
+.searchForm > input{
+  border-radius: 10px 0 0 10px;
+  border: none;
+  height: 20px;
+}
+
+.anchor{
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
+.row{
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  position: fixed;
+  
+}
+
+.col{
+  width: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.col-s{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  justify-content: flex-end;
+}
+
+.search{
+  flex-flow: end;
+}
+
+.btn{
+  width: auto;
+  background-color: #2b58b4;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  height: 30px;
+  cursor: pointer;
 }

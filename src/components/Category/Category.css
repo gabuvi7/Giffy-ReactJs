@@ -1,0 +1,51 @@
+.Category-title {
+  color: white;
+  font-weight: bold;
+}
+
+.Category-list {
+  text-align: left;
+}
+
+.Category-link {
+  color: white;
+  font-size: 1em;
+  transition: color ease-in 0.1s;
+  text-decoration: none;
+}
+
+.list-item > li:nth-child(odd) {
+  background-color: #25e0b2;
+  color: black;
+}
+
+
+.list-item > li:nth-child(even) {
+  background-color: #fffc4e;
+  color: black;
+}
+
+li {
+  margin: 3px 0px 3px 0px;
+  padding-left: 3px;
+  text-transform: none;
+  opacity: 0.5;
+  display: block !important;
+  cursor: pointer;
+}
+
+li:hover {
+  opacity: 1 !important;
+}
+
+@media screen and (min-width: 640px) {
+  .Category-list {
+    display: list-item;
+  }
+
+  .Category-list li::before {
+    color: #080077;
+    margin-right: 0.5em;
+    font-size: 1em;
+  }
+}

@@ -1,0 +1,34 @@
+.menu {
+  z-index: 999999;
+  background-color: black;
+}
+
+nav {
+  padding-bottom: 52px;
+}
+
+#giffy {
+  margin: 13px;
+  color: #2b58b4;
+  cursor: pointer;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 2rem;
+  z-index: 999999;
+}
+#colGiffy {
+  justify-content: center;
+  width: 100%;
+}
+
+@media screen and (max-width: 760px) {
+  #colGiffy {
+    justify-content: start;
+  }
+  #colSearch {
+    width: 100%;
+  }
+  #idSearch {
+    width: 50%;
+    padding: 0;
+  }
+}
