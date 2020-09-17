@@ -1,24 +1,31 @@
-import React, { useReducer, useState } from "react";
-import { Link, useLocation } from "wouter";
+import React, { useReducer } from "react";
+import { useLocation } from "wouter";
 //useHistory == useLocation
 import "./Search.css";
 
 const RATINGS = ["g", "pg", "pg-13", "r"];
+const ACTION = {
+  UPDATE_KEYWORD: "update_keyword",
+  UPDATE_RATING: "update_rating",
+};
+
 const reducer = (state, action) => {
   console.log(action.payload);
-  if (action.type === "update_keyword") {
-    return {
-      ...state,
-      keyword: action.payload,
-      times: state.times + 1,
-    };
-  } else if (action.type === "update_rating") {
-    return {
-      ...state,
-      rating: action.payload,
-    };
+  switch (action.type) {
+    case ACTION.UPDATE_KEYWORD:
+      return {
+        ...state,
+        keyword: action.payload,
+        times: state.times + 1,
+      };
+    case ACTION.UPDATE_RATING:
+      return {
+        ...state,
+        rating: action.payload,
+      };
+    default:
+      throw new Error(`Action ${action.type} not supported`);
   }
-  return state;
 };
 export default function Search({
   initialKeyword = "",
@@ -43,7 +50,7 @@ export default function Search({
   };
 
   const handleChange = (e) => {
-    dispatch({ type: "update_keyword", payload: e.target.value });
+    dispatch({ type: ACTION.UPDATE_KEYWORD, payload: e.target.value });
   };
 
   const submitAction = (e) => {
@@ -53,12 +60,11 @@ export default function Search({
   };
 
   const handleChangeRating = (e) => {
-    dispatch({ type: "update_rating", payload: e.target.value });
+    dispatch({ type: ACTION.UPDATE_RATING, payload: e.target.value });
   };
 
   return (
     <>
-      <span className="anchor">{times}</span>
       <form className="searchForm" onSubmit={submitAction}>
         <input
           id="idSearch"
