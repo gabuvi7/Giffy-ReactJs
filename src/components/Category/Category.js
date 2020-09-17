@@ -9,7 +9,7 @@ export default function Category({ name, options = [] }) {
         <Link
           key={singleOption.id}
           className="Category-link"
-          to={`/gif/${singleOption.slug}`}
+          to={`/gif/search/${singleOption.slug}`}
         >
           <li>{singleOption.title}</li>
         </Link>

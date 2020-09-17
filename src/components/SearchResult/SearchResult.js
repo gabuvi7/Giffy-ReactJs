@@ -6,12 +6,12 @@ import useNearScreen from "hooks/useNearScreen";
 //import debounce from "just-debounce-it";
 import throttle from "just-throttle";
 import "./SearchResult.css";
-import useTitle from "hooks/useSEO";
+//import useTitle from "hooks/useSEO";
 import { Helmet } from "react-helmet";
 
 export default function SearchResult({ params }) {
-  const { keyword } = params;
-  const { loading, gifs, setPage } = useGifs({ keyword });
+  const { keyword, rating = 'g' } = params;
+  const { loading, gifs, setPage } = useGifs({ keyword, rating });
   const externalRef = useRef();
   const { isNearScreen } = useNearScreen({
     externalRef: loading ? null : externalRef,
