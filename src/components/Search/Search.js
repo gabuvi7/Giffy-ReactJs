@@ -3,10 +3,12 @@ import { useLocation } from "wouter";
 //useHistory == useLocation
 import "./Search.css";
 
+const LANGUAGES = ["en", "es", "ru", "it", "de"];
 const RATINGS = ["g", "pg", "pg-13", "r"];
 const ACTION = {
   UPDATE_KEYWORD: "update_keyword",
   UPDATE_RATING: "update_rating",
+  UPDATE_LANGUAGE: "update_language",
 };
 
 const reducer = (state, action) => {
@@ -23,6 +25,11 @@ const reducer = (state, action) => {
         ...state,
         rating: action.payload,
       };
+    case ACTION.UPDATE_LANGUAGE:
+      return {
+        ...state,
+        language: action.payload,
+      };
     default:
       throw new Error(`Action ${action.type} not supported`);
   }
@@ -30,22 +37,24 @@ const reducer = (state, action) => {
 export default function Search({
   initialKeyword = "",
   initialRating = RATINGS[0],
+  initialLanguage = LANGUAGES[0],
 }) {
   const mainTitleText = "Qué Gif buscas?";
   const [state, dispatch] = useReducer(reducer, {
     keyword: decodeURIComponent(initialKeyword),
     rating: initialRating,
+    language: initialLanguage,
     times: 0,
   });
 
-  const { keyword, rating, times } = state;
+  const { keyword, rating, times, language } = state;
 
   const [_, pushLocation] = useLocation(); //custom Hook de wouter. Devuelve el path y una funcion.
 
   const onSubmit = ({ keyword }) => {
     if (keyword !== "") {
       // navegar a otra ruta
-      pushLocation(`/gif/search/${keyword}/${rating}`);
+      pushLocation(`/gif/search/${keyword}/${rating}/${language}`);
     }
   };
 
@@ -63,6 +72,11 @@ export default function Search({
     dispatch({ type: ACTION.UPDATE_RATING, payload: e.target.value });
   };
 
+  const handleChangeLanguage = (e) => {
+    dispatch({ type: ACTION.UPDATE_LANGUAGE, payload: e.target.value });
+    console.log(e.target.value);
+  };
+
   return (
     <>
       <form className="searchForm" onSubmit={submitAction}>
@@ -74,9 +88,15 @@ export default function Search({
         ></input>
         <button>Buscar...</button>
         <select value={rating} onChange={handleChangeRating}>
-          <option disabled>Tipos de rating</option>
+          <option disabled>Rating</option>
           {RATINGS.map((rating) => (
             <option key={rating}>{rating}</option>
+          ))}
+        </select>
+        <select value={language} onChange={handleChangeLanguage}>
+          <option disabled>Idiomas</option>
+          {LANGUAGES.map((language) => (
+            <option key={language}>{language}</option>
           ))}
         </select>
       </form>
