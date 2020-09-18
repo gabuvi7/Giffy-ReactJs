@@ -9,6 +9,7 @@ const ACTION = {
   UPDATE_KEYWORD: "update_keyword",
   UPDATE_RATING: "update_rating",
   UPDATE_LANGUAGE: "update_language",
+  RESET_FILTERS: "reset_filters",
 };
 
 const reducer = (state, action) => {
@@ -29,6 +30,12 @@ const reducer = (state, action) => {
       return {
         ...state,
         language: action.payload,
+      };
+    case ACTION.RESET_FILTERS:
+      return {
+        keyword: "",
+        rating: "g",
+        language: "en"
       };
     default:
       throw new Error(`Action ${action.type} not supported`);
@@ -53,7 +60,6 @@ export default function Search({
 
   const onSubmit = ({ keyword }) => {
     if (keyword !== "") {
-      // navegar a otra ruta
       pushLocation(`/gif/search/${keyword}/${rating}/${language}`);
     }
   };
@@ -63,7 +69,6 @@ export default function Search({
   };
 
   const submitAction = (e) => {
-    // prevents default evita el comportamiento por defecto de la pagina y no la recarga al hacer submit
     e.preventDefault();
     onSubmit({ keyword });
   };
@@ -77,6 +82,10 @@ export default function Search({
     console.log(e.target.value);
   };
 
+  const handleResetFilters = (e) => {
+    dispatch({ type: ACTION.RESET_FILTERS, payload: e.target.value });
+  };
+
   return (
     <>
       <form className="searchForm" onSubmit={submitAction}>
@@ -86,7 +95,10 @@ export default function Search({
           placeholder={mainTitleText}
           onChange={handleChange}
         ></input>
-        <button>Buscar...</button>
+        <button type="button" className="btn btn-danger" onClick={handleResetFilters}>
+          X
+        </button>
+        <button className="btn btn-primary"></button>
         <select value={rating} onChange={handleChangeRating}>
           <option disabled>Rating</option>
           {RATINGS.map((rating) => (
