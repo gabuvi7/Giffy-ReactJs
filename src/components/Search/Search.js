@@ -12,6 +12,40 @@ const ACTION = {
   RESET_FILTERS: "reset_filters",
 };
 
+const useForm = ({ initialKeyword, initialRating, initialLanguage }) => {
+  const [state, dispatch] = useReducer(reducer, {
+    keyword: decodeURIComponent(initialKeyword),
+    rating: initialRating,
+    language: initialLanguage,
+    times: 0,
+  });
+  const { keyword, rating, language, times, filter } = state;
+  return {
+    keyword,
+    rating,
+    language,
+    times,
+    filter,
+    updateKeyword: (keyword) =>
+      dispatch({
+        type: ACTION.UPDATE_KEYWORD,
+        payload: keyword,
+      }),
+    updateRating: (rating) =>
+      dispatch({
+        type: ACTION.UPDATE_RATING,
+        payload: rating,
+      }),
+    updateLanguage: (language) =>
+      dispatch({
+        type: ACTION.UPDATE_LANGUAGE,
+        payload: language,
+      }),
+    updateFilter: (filter) =>
+      dispatch({ type: ACTION.RESET_FILTERS, payload: filter }),
+  };
+};
+
 const reducer = (state, action) => {
   console.log(action.payload);
   switch (action.type) {
@@ -35,7 +69,7 @@ const reducer = (state, action) => {
       return {
         keyword: "",
         rating: "g",
-        language: "en"
+        language: "en",
       };
     default:
       throw new Error(`Action ${action.type} not supported`);
@@ -47,14 +81,20 @@ function Search({
   initialLanguage = LANGUAGES[0],
 }) {
   const mainTitleText = "Qué Gif buscas?";
-  const [state, dispatch] = useReducer(reducer, {
-    keyword: decodeURIComponent(initialKeyword),
-    rating: initialRating,
-    language: initialLanguage,
-    times: 0,
-  });
 
-  const { keyword, rating, language } = state;
+  const {
+    keyword,
+    rating,
+    language,
+    updateKeyword,
+    updateRating,
+    updateLanguage,
+    updateFilter,
+  } = useForm({
+    initialKeyword,
+    initialRating,
+    initialLanguage,
+  });
 
   const [_, pushLocation] = useLocation();
 
@@ -65,7 +105,7 @@ function Search({
   };
 
   const handleChange = (e) => {
-    dispatch({ type: ACTION.UPDATE_KEYWORD, payload: e.target.value });
+    updateKeyword(e.target.value);
   };
 
   const submitAction = (e) => {
@@ -74,16 +114,15 @@ function Search({
   };
 
   const handleChangeRating = (e) => {
-    dispatch({ type: ACTION.UPDATE_RATING, payload: e.target.value });
+    updateRating(e.target.value);
   };
 
   const handleChangeLanguage = (e) => {
-    dispatch({ type: ACTION.UPDATE_LANGUAGE, payload: e.target.value });
-    console.log(e.target.value);
+    updateLanguage(e.target.value);
   };
 
   const handleResetFilters = (e) => {
-    dispatch({ type: ACTION.RESET_FILTERS, payload: e.target.value });
+    updateFilter(e.target.value);
   };
 
   return (
@@ -95,7 +134,11 @@ function Search({
           placeholder={mainTitleText}
           onChange={handleChange}
         ></input>
-        <button type="button" className="btn btn-danger" onClick={handleResetFilters}>
+        <button
+          type="button"
+          className="btn btn-danger"
+          onClick={handleResetFilters}
+        >
           X
         </button>
         <button className="btn btn-primary"></button>
