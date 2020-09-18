@@ -41,7 +41,7 @@ const reducer = (state, action) => {
       throw new Error(`Action ${action.type} not supported`);
   }
 };
-export default function Search({
+function Search({
   initialKeyword = "",
   initialRating = RATINGS[0],
   initialLanguage = LANGUAGES[0],
@@ -54,9 +54,9 @@ export default function Search({
     times: 0,
   });
 
-  const { keyword, rating, times, language } = state;
+  const { keyword, rating, language } = state;
 
-  const [_, pushLocation] = useLocation(); //custom Hook de wouter. Devuelve el path y una funcion.
+  const [_, pushLocation] = useLocation();
 
   const onSubmit = ({ keyword }) => {
     if (keyword !== "") {
@@ -116,4 +116,4 @@ export default function Search({
   );
 }
 
-//export default React.memo(Search);
+export default React.memo(Search);
