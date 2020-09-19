@@ -67,7 +67,6 @@ function Search({
           onChange={handleChange}
         ></input>
         <button
-          type="button"
           className="btn btn-danger"
           onClick={handleResetFilters}
         >
