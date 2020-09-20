@@ -6,6 +6,7 @@ import useNearScreen from "hooks/useNearScreen";
 import throttle from "just-throttle";
 import "./SearchResult.css";
 import { Helmet } from "react-helmet";
+import { Redirect } from "wouter";
 
 export default function SearchResult({ params }) {
   const { keyword, rating = "g", lang = "es" } = params;
@@ -23,9 +24,14 @@ export default function SearchResult({ params }) {
   useEffect(() => {
     if (isNearScreen) throttleHandleNextPage();
   }, [throttleHandleNextPage, isNearScreen]);
+
+  if (gifs.length === 0) {
+    return <Redirect to="/404" />;
+  }
+
   return (
     <div id="idSearchResult">
-      {loading ? (
+      {loading ? ( 
         <Spinner />
       ) : (
         <>
