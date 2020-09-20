@@ -6,7 +6,7 @@ function Gif({ title, id, url }) {
   return (
     <div className="ListOfGifs-item">
       <Link to={`/gif/detail/${id}`} className="ListOfGifs-item">
-        <h4>{title ? title : "Giffy"}</h4>
+        <h4>{title !== " " ? title : "Giffy"}</h4>
         <img loading="lazy" alt={title} src={url} />
       </Link>
     </div>
