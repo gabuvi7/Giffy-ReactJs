@@ -3,7 +3,7 @@ import Gif from "components/Gif";
 import useSingleGif from "hooks/useSingleGif";
 import Spinner from "components/Spinner/Spinner";
 import { Redirect } from "wouter";
-import useTitle from "hooks/useSEO";
+//import useTitle from "hooks/useSEO";
 import "./DetailPage.css";
 import { Helmet } from "react-helmet"; //Reemplazo a mi hook useSEO.
 

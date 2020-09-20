@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,500&family=Lexend+Peta&display=swap");
 
-:root{
+:root {
   background-color: black;
 }
 
@@ -20,47 +20,26 @@
   font-family: "Josefin Sans", sans-serif;
 }
 
-.searchForm{
-  padding-right: 15px;
-}
-
-.searchForm > button{
-  background-color: #2d59b3;
-  border-radius: 0px 10px 10px 0px;
-  color: #fff;
-  border: none;
-  height: 22px;
-}
-
-.searchForm > input{
-  border-radius: 10px 0 0 10px;
-  border: none;
-  height: 20px;
-}
-
-.anchor{
+.anchor {
   color: #fff;
   text-decoration: none;
 }
 
-
-
-.row{
+.row {
   width: 100%;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
   position: fixed;
-  
 }
 
-.col{
+.col {
   width: auto;
   display: flex;
   flex-direction: row;
 }
 
-.col-s{
+.col-s {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -68,11 +47,11 @@
   justify-content: flex-end;
 }
 
-.search{
+.search {
   flex-flow: end;
 }
 
-.btn{
+.btn {
   width: auto;
   background-color: #2b58b4;
   border: none;
@@ -80,4 +59,8 @@
   color: white;
   height: 30px;
   cursor: pointer;
+}
+
+.btn-danger {
+  background-color: red !important;
 }

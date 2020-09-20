@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "wouter";
-import Search from "../Search";
+import Search from "../Search/Search";
 import "./Menu.css";
 /*
 const POPULAR_GIFS = [
