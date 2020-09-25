@@ -1,8 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const { mongo } = require("mongoose");
+const mongoose = require("mongoose");
 const dbConfig = require("./config/db.config");
 const app = express();
+const userRoutes = require("./src/routes/user.routes");
 
 const port = process.env.PORT || 8080;
 
@@ -12,9 +13,10 @@ app.use(bodyParser.json());
 
 // Connecting to the db.
 
-mongo.connect(dbConfig.url, {
-  useNewUrlParser: true,
-})
+mongoose
+  .connect(dbConfig.url, {
+    useNewUrlParser: true,
+  })
   .then(() => {
     console.log("Se conecto a la base");
   })
@@ -30,3 +32,5 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`node server is listening on port ${port}`);
 });
+
+app.use("/api/users", userRoutes);
