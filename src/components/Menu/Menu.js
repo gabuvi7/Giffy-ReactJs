@@ -1,27 +1,31 @@
+import Header from "components/Header/Header";
 import React from "react";
 import { Link } from "wouter";
 import Search from "../Search/Search";
 import "./Menu.css";
 /*
-const POPULAR_GIFS = [
-  "Argentina",
-  "Boca Juniors",
-  "Harry Potter",
-  "Resident Evil",
-];*/
-/*  <div className="col">
-          {POPULAR_GIFS.map((popularGifs) => (
-            <ul key={popularGifs}>
-              <Link className="anchor" to={`/gif/${popularGifs}`}>
-                {popularGifs}
-              </Link>
-            </ul>
-          ))}
-        </div>
-*/
+<nav className="navbar">
+<button
+  className="navbar-toggler"
+  type="button"
+  data-toggle="collapse"
+  data-target="#navbarToggler"
+  aria-expanded="false"
+  aria-label="Toggle"
+>
+  <span>Expandir</span>
+</button>
+<div className="collapse navbar-collapse" id="navbarToggler">
+  <Link className="navbar-brand" to="/">
+    <h3 id="giffy">Giffy</h3>
+  </Link>
+</div>
+</nav>*/
+
 export default function Menu() {
   return (
     <nav>
+      <Header></Header>
       <div className="row menu">
         <div className="col" id="colGiffy">
           <Link className="anchor" to="/">

@@ -25,10 +25,7 @@ export default function SearchResult({ params }) {
     if (isNearScreen) throttleHandleNextPage();
   }, [throttleHandleNextPage, isNearScreen]);
 
-  if (gifs.length === 0) {
-    return <Redirect to="/404" />;
-  }
-
+ 
   return (
     <div id="idSearchResult">
       {loading ? ( 
