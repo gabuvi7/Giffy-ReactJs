@@ -16,7 +16,7 @@
   padding-right: 15px;
 }
 
-.btn{
+.btn-search{
   background-color: #2d59b3;
   border-radius: 0px 10px 10px 0px;
   color: #fff;
@@ -24,11 +24,11 @@
   height: 22px;
 }
 
-.btn-primary{
+.btn-primary-search{
     border-radius: 0px 10px 10px 0px !important;
 }
 
-.btn-danger{
+.btn-danger-search{
     border-radius: 10px 0px 0px 10px !important
 }
 

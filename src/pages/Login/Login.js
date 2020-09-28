@@ -1,14 +1,21 @@
-import React, { useState } from "react";
+import useUser from "hooks/useUser";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [, navigate] = useLocation();
+  const { isLogged, login } = useUser();
+
+  useEffect(() => {
+    isLogged ? navigate("/") : navigate("/login");
+  }, [isLogged, navigate]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // alert(`${username}, ${password}`);
-    navigate('/')
+    login({ username, password });
   };
   const handleChangeUsername = (e) => {
     setUsername(e.target.value);
