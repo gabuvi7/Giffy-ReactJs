@@ -39,6 +39,7 @@ exports.create = (req, res) => {
     email: req.body.email,
     username: req.body.username,
     password: req.body.password,
+    permissionLevel: req.body.permissionLevel,
   });
 
   // Guardo usuario en la base
@@ -121,6 +122,7 @@ exports.update = (req, res) => {
       email: req.body.email,
       username: req.body.username,
       password: req.body.password,
+      permissionLevel: req.body.permissionLevel,
     },
     { new: true }
   )
@@ -175,3 +177,4 @@ exports.delete = (req, res) => {
 exports.findByEmail = (email) => {
   return User.find({ email: email });
 };
+

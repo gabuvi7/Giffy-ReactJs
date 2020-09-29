@@ -7,6 +7,7 @@ const userSchema = mongoose.Schema(
     email: String,
     username: String,
     password: String,
+    permissionLevel: Number,
     is_active: { type: Boolean, default: false },
     is_verified: { type: Boolean, default: false },
     is_deleted: { type: Boolean, default: false },

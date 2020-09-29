@@ -5,5 +5,5 @@ module.exports = {
     PAID_USER: 4,
     ADMIN: 7,
   },
-  key: "MIIEpAIBAAKCAQEAyVTQ9QxfutaYXKBbYfZbH2vhIWoIPEjAFSbsy1PZoIcclUQR",
+  key: "!!My_:,.._S33333ecR3TTt-.,PWD",
 };
