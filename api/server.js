@@ -2,19 +2,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const dbConfig = require("./config/db.config");
-<<<<<<< HEAD
-const app = express();
-const userRoutes = require("./src/routes/user.routes");
-
-const port = process.env.PORT || 8080;
-
-app.use(bodyParser.urlencoded({ extended: true }));
-
-app.use(bodyParser.json());
-
-// Connecting to the db.
-
-=======
 const jwt = require("jsonwebtoken");
 const config = "./config/config.js";
 const userRoutes = require("./src/routes/user.routes");
@@ -36,7 +23,6 @@ mongoose.set("useNewUrlParser", true);
 mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 mongoose.set("useUnifiedTopology", true);
->>>>>>> feature/api
 mongoose
   .connect(dbConfig.url, {
     useNewUrlParser: true,
@@ -49,17 +35,6 @@ mongoose
     process.exit();
   });
 
-<<<<<<< HEAD
-app.get("/", (req, res) => {
-  res.json({ message: "Hola bienvenidos a la api" });
-});
-
-app.listen(port, () => {
-  console.log(`node server is listening on port ${port}`);
-});
-
-app.use("/api/users", userRoutes);
-=======
 app.listen(port, () => {
   console.log(`node server is listening on port ${port}`);
 });
@@ -80,4 +55,3 @@ app.get("/auth", middleware.isAuthorized, (req, res) => {
 
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
->>>>>>> feature/api
