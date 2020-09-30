@@ -11,7 +11,7 @@ const FREE = config.permissionLevels.NORMAL_USER;
 
 router.get("/", [
   ValidationMiddleware.validJWTNeeded,
-  PermissionMiddleware.minimumPermissionLevelRequired(PAID),
+  PermissionMiddleware.minimumPermissionLevelRequired(ADMIN),
   UserController.findAll,
 ]);
 
@@ -23,7 +23,7 @@ router.get("/:id", [
   UserController.findOne,
 ]);
 
-router.patch("/:id", [
+router.put("/:id", [
   ValidationMiddleware.validJWTNeeded,
   PermissionMiddleware.minimumPermissionLevelRequired(FREE),
   UserController.update,

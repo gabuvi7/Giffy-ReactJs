@@ -65,14 +65,16 @@ exports.isPasswordAndUserMatch = (req, res, next) => {
         .update(req.body.password)
         .digest("base64");
       if (hash === passwordFields[1]) {
-        console.log("entro al hash === passwordFields[1]: ", req.body);
+        console.log("entro al hash === passwordFields[1]: ");
         req.body = {
           userId: user[0]._id,
           email: user[0].email,
-          permissionLevels: user[0].permissionLevels,
+          permissionLevel: user[0].permissionLevel,
           provider: "email",
           name: user[0].name + " " + user[0].surname,
         };
+        console.log("REQ.BODY del if hash: ", req.body);
+        console.log("USER[0] del if hash: ", user[0]);
         return next();
       } else {
         return res.status(400).send({ errors: "Invalid email or password" });

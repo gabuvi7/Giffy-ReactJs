@@ -2,7 +2,7 @@ exports.minimumPermissionLevelRequired = (required_permission_level) => {
   return (req, res, next) => {
     console.log("paso 1: Entra al minimum permission level required");
     let user_permission_level = parseInt(req.jwt.permissionLevel);
-    let reqjwt = req.jwt
+    let reqjwt = req.jwt;
     console.log(
       "paso 2",
       user_permission_level,
@@ -17,7 +17,7 @@ exports.minimumPermissionLevelRequired = (required_permission_level) => {
     );
     let userId = req.jwt.userId;
     console.log("paso 3", userId);
-    if (user_permission_level & required_permission_level) {
+    if (user_permission_level >= required_permission_level) {
       console.log(
         "paso 4. Entra al if",
         user_permission_level,
