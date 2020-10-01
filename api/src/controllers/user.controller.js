@@ -58,7 +58,6 @@ exports.create = (req, res) => {
 // Busco usuario por id:
 
 exports.findOne = (req, res) => {
-  console.log("Entro al findOne");
   User.findById(req.params.id)
     .then((user) => {
       if (!user) {
@@ -66,11 +65,9 @@ exports.findOne = (req, res) => {
           message: "No se encontro el usuario con el id " + req.params.id,
         });
       }
-      console.log("Entro al .then de findById: ");
       user = user.toJSON();
       delete user.password;
       delete user.__v;
-      console.log("Ya borre la pwd: ", user);
       if (user.password) {
         return res
           .status(500)
@@ -108,19 +105,14 @@ exports.update = (req, res) => {
 
     // Encripto la contraseña
     if (req.body.password) {
-      console.log("Entra al req.body.pwd: ", req.body.password);
       let salt = crypto.randomBytes(16).toString("base64");
       let hash = crypto
         .createHmac("sha512", salt)
         .update(req.body.password)
         .digest("base64");
       let pwd = salt + "$" + hash;
-      console.log("Password hasheada: ", pwd);
       req.body.password = pwd;
     }
-
-    console.log("Sigue hasheada la pwd? : ", req.body.password);
-
     User.findByIdAndUpdate(
       req.params.id,
       {
@@ -169,7 +161,6 @@ exports.delete = (req, res) => {
           message: "Usuario no encontrado por id " + req.params.id,
         });
       }
-
       res.send({ message: "Usuario borrado satisfactoriamente!" });
     })
     .catch((err) => {

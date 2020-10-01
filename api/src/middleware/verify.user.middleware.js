@@ -39,10 +39,6 @@ exports.hasAuthValidFields = (req, res, next) => {
     if (errors.length) {
       return res.status(400).send({ errors: errors.join(",") });
     } else {
-      console.log(
-        "Entra al return next de has auth valid fields. Req body: ",
-        req.body
-      );
       return next();
     }
   } else {
@@ -53,7 +49,6 @@ exports.hasAuthValidFields = (req, res, next) => {
 };
 
 exports.isPasswordAndUserMatch = (req, res, next) => {
-  console.log("Entra al is password and user match");
   UserController.findByEmail(req.body.email).then((user) => {
     if (!user[0]) {
       res.status(404).send({ errors: "Invalid email or password" });
@@ -65,7 +60,6 @@ exports.isPasswordAndUserMatch = (req, res, next) => {
         .update(req.body.password)
         .digest("base64");
       if (hash === passwordFields[1]) {
-        console.log("entro al hash === passwordFields[1]: ");
         req.body = {
           userId: user[0]._id,
           email: user[0].email,
@@ -73,8 +67,6 @@ exports.isPasswordAndUserMatch = (req, res, next) => {
           provider: "email",
           name: user[0].name + " " + user[0].surname,
         };
-        console.log("REQ.BODY del if hash: ", req.body);
-        console.log("USER[0] del if hash: ", user[0]);
         return next();
       } else {
         return res.status(400).send({ errors: "Invalid email or password" });
