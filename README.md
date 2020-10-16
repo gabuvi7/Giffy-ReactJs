@@ -1,3 +1,11 @@
+It is a GIF search app, it uses the Giphy API to get gifs and trends.
+To deploy that, i'm using Vercel.
+Is still it's in develop
+
+Link to page: https://giffy.gabuvi7.vercel.app/
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
