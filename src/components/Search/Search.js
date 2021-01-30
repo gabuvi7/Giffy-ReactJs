@@ -60,6 +60,13 @@ function Search({
   return (
     <>
       <form className="searchForm" onSubmit={submitAction}>
+        <button
+          type="button"
+          className="btn-search btn btn-danger-search btn-danger"
+          onClick={handleResetFilters}
+        >
+          X
+        </button>
         <input
           id="idSearch"
           value={keyword}
@@ -67,12 +74,9 @@ function Search({
           onChange={handleChange}
         ></input>
         <button
-          className="btn btn-danger"
-          onClick={handleResetFilters}
-        >
-          X
-        </button>
-        <button className="btn btn-primary"></button>
+          type="input"
+          className="btn-search btn btn-primary-search btn-primary"
+        ></button>
         <select value={rating} onChange={handleChangeRating}>
           <option disabled>Rating</option>
           {RATINGS.map((rating) => (
