@@ -25,7 +25,6 @@ import "./Menu.css";
 export default function Menu() {
   return (
     <nav>
-      <Header></Header>
       <div className="row menu">
         <div className="col" id="colGiffy">
           <Link className="anchor" to="/">
