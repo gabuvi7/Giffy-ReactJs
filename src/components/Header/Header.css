@@ -1,0 +1,10 @@
+.gf-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 50px 0 0 ;
+}
+
+.gf-header > a {
+    font-weight: 700;
+    color: #fff;
+}
