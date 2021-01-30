@@ -27,7 +27,7 @@ export default function Detail({ params }) {
   if (isError) return <Redirect to="/404" />;
 
   if (!gif) return null;
-  console.log(gif);
+  //console.log(gif);
   return (
     <>
       <Helmet>
